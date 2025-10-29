@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - LaraFlix</title>
+  
+  <link href="styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body id="topo">
+
+  <header>
+    <div id="logo">
+      <a href="index.html">
+        <img src="imagens/logo2.png" class="tam_logo" alt="logo" />
+      </a>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Bombando</a></li>
+        <li><a href="index1.html">Filmes em Cartaz</a></li>
+        <li><a href="index2.html">Filmes em Breve</a></li>
+        <li><a href="index3.html">Sobre</a></li>
+        <li><a href="index4.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="container" class="conteudo-pagina">
+      <h1>Entre em Contato</h1>
+      <p>
+        Tem alguma dúvida, sugestão ou parceria? Adoraríamos ouvir você! Preencha o formulário abaixo e nossa equipe responderá o mais rápido possível.
+      </p>
+
+      <form class="form-contato" action="enviar_contato.php" method="post">
+        
+        <label for="contato-nome">Seu Nome:</label>
+        <input type="text" id="contato-nome" name="nome" required>
+
+        <label for="contato-email">Seu Email:</label>
+        <input type="email" id="contato-email" name="email" required>
+
+        <label for="contato-assunto">Assunto:</label>
+        <input type="text" id="contato-assunto" name="assunto" required>
+
+        <label for="contato-mensagem">Mensagem:</label>
+        <textarea id="contato-mensagem" name="mensagem" rows="6" required></textarea>
+
+        <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+
+      </form>
+      </div>
+  </main>
+
+  <footer id="footer">
+    <p>&copy; Copyright 2025</p>
+  </footer>
+
+  <a href="#topo" id="btn-topo">^</a>
+
+</body>
+</html>

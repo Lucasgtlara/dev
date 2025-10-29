@@ -1,0 +1,865 @@
+/* -------------------- GERAL -------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #f5f5ff;
+  text-align: center;
+}
+
+body {
+  background-color: #0d0d0d; /* fundo escuro tipo sala de cinema */
+  width: 94%;
+  margin: auto;
+}
+
+/* -------------------- CABEÇALHO E MENU -------------------- */
+header {
+  display: flex;
+  align-items: center;
+  /* alinha verticalmente logo e menu */
+  justify-content: space-between; /* logo à esquerda, menu à direita */
+  padding: 1em 2%;
+  /* espaço interno */
+  background: linear-gradient(90deg, #1a1a1a, #000);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Logo */
+#logo img.tam_logo {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+#logo img.tam_logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navegação */
+#nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  list-style: none;
+}
+
+#nav a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+#nav a:hover {
+  color: #e50914; /* vermelho Netflix-style */
+  text-shadow: 0 0 8px #e50914;
+}
+
+/* -------------------- DESTAQUE PRINCIPAL (HOME) -------------------- */
+#featured {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 2em 0;
+}
+
+#container {
+  background: radial-gradient(circle at center, #1a1a1a 20%, #000);
+  padding: 3em 1em;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(229, 9, 20, 0.2);
+  transition: transform 0.4s ease;
+}
+
+#container:hover {
+  transform: scale(1.02);
+}
+
+/* Imagem central */
+.imagem-central img {
+  display: block;
+  margin: 0 auto 2em auto;
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Linha principal: esquerda + texto + direita */
+.linha-principal {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+.linha-principal img.ladoesquerda,
+.linha-principal img.ladodireita {
+  flex: 1 1 25%;
+  max-width: 25%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linha-principal img.ladoesquerda:hover,
+.linha-principal img.ladodireita:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
+}
+
+.linha-principal p.sinopse {
+  flex: 2 1 40%;
+  font-size: 16px;
+  line-height: 1.6em;
+  text-align: justify;
+}
+
+/* Linha de 4 imagens extras */
+.linha-extras {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.linha-extras img.imagens-extras {
+  flex: 1 1 22%;
+  max-width: 22%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linha-extras img.imagens-extras:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
+}
+
+/* -------------------- COLUNAS DE CONTEÚDO (HOME) -------------------- */
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+}
+
+.article {
+  background-color: #1a1a1a;
+  flex: 1 1 25%;
+  min-width: 260px;
+  padding: 2em 1em;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+}
+
+/* Título de filme/seção (usado em column1 e column3) */
+p.titulo {
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #e50914, #b0060f);
+  border-radius: 10px;
+  padding: 0.5em;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+
+/* -------------------- TABELA DE HORARIOS (COLUNA 1) -------------------- */
+.article.column1 {
+  background: linear-gradient(180deg, #1a1a1a, #000);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+  padding: 1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article.column1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.6);
+}
+
+.article.column1 table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ddd;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.article.column1 th,
+.article.column1 td {
+  padding: 10px;
+  text-align: center;
+}
+
+.article.column1 tr.head th {
+  background: #e50914;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #b0060f;
+}
+
+.article.column1 tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.article.column1 tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.article.column1 td.right {
+  text-align: right;
+}
+
+/* --- CORREÇÃO DE SINTAXE AQUI --- */
+.article.column1 tr:hover {
+  background-color: rgba(229, 9, 20, 0.15);
+  transition: background 0.3s ease; /* Estava 'background:' (errado) */
+}
+
+/* -------------------- FORMULÁRIO DE COMPRA (COLUNA 2) -------------------- */
+.article.column2 {
+  background: linear-gradient(180deg, #1a1a1a, #000);
+  border-radius: 12px;
+  padding: 2em;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.article.column2 legend {
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 10px;
+  background-color: #e50914;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+}
+
+.article.column2 fieldset {
+  border: 1px solid #e50914;
+  border-radius: 10px;
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.article.column2 .campo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1em;
+}
+
+.article.column2 label.title,
+.article.column2 span.title {
+  color: #e50914;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  font-size: 0.95em;
+  text-align: left;
+  width: 100%;
+}
+
+.article.column2 input[type="text"],
+.article.column2 input[type="email"],
+.article.column2 select {
+  width: 100%;
+  padding: 0.6em;
+  border: none;
+  border-radius: 5px;
+  background-color: #222;
+  color: #f5f5f5;
+  outline: none;
+  font-size: 0.95em;
+  transition: box-shadow 0.3s ease;
+}
+
+.article.column2 input:focus,
+.article.column2 select:focus {
+  box-shadow: 0 0 8px #e50914;
+}
+
+.article.column2 input[type="radio"] {
+  accent-color: #e50914;
+}
+
+.article.column2 .botoes {
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.article.column2 #submit {
+  background-color: #e50914;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.article.column2 #submit:hover {
+  background-color: #b0060f;
+  transform: scale(1.05);
+}
+
+
+/* -------------------- TABELA DE LANÇAMENTOS (COLUNA 3) -------------------- */
+.article.column3 {
+  background: linear-gradient(180deg, #1a1a1a, #000);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+  padding: 1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article.column3 table {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.article.column3 th,
+.article.column3 td {
+  padding: 6px 8px;
+  font-size: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #e0e0e0;
+  border-top: 1px solid #f1f8fe;
+  border-bottom: 1px solid #cbd2d8;
+  border-right: 1px solid #cbd2d8;
+  color: #000;
+}
+
+/* Cabeçalho da tabela */
+.article.column3 tr.head th {
+  color: #fff;
+  background-color: #e50914;
+  border-bottom: 2px solid #5c0000;
+  border-right: 1px solid #740000;
+  border-top: 1px solid #8b0000;
+  text-shadow: -1px -1px 1px #333;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+/* Linhas alternadas */
+.article.column3 tr.even td,
+.article.column3 tr.even th {
+  background-color: #f5f5f5;
+}
+
+/* Arredondamento do topo */
+.article.column3 tr.head th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.article.column3 tr.head th:last-child {
+  border-top-right-radius: 10px;
+}
+
+
+/* -------------------- FORMULÁRIO DE NEWSLETTER (COLUNA 4) -------------------- */
+.article.column4 {
+  background-color: #2b0c03;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Título do fieldset */
+.article.column4 fieldset.rec_inf {
+  border: 2px solid #8b0000; /* vermelho escuro cinema */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #1a1a1a;
+}
+
+.article.column4 legend.rec_inf {
+  font-weight: bold;
+  color: #fff;
+  background-color: #8b0000;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+/* Campos de formulário */
+.article.column4 label.title {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #ddd;
+}
+
+.article.column4 input[type="text"],
+.article.column4 input[type="email"],
+.article.column4 input[type="date"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  color: #000;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.article.column4 input[type="text"]:focus,
+.article.column4 input[type="email"]:focus,
+.article.column4 input[type="date"]:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.5);
+  outline: none;
+}
+
+/* Botões do form 4 */
+.article.column4 #submit,
+.article.column4 #reset {
+  background-color: #e50914;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 5px;
+}
+
+.article.column4 #submit:hover,
+.article.column4 #reset:hover {
+  background-color: #b0060f;
+  transform: scale(1.05);
+}
+
+
+/* -------------------- RODAPÉ -------------------- */
+#footer {
+  background: linear-gradient(90deg, #000, #1a1a1a);
+  color: #ccc;
+  padding: 1em 0;
+  margin-top: 3em;
+  border-top: 2px solid #e50914;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+/* -------------------- RESPONSIVIDADE (TABLET) -------------------- */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav ul {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  /* Linha principal */
+  .linha-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .linha-principal img.ladoesquerda,
+  .linha-principal img.ladodireita,
+  .linha-principal p.sinopse {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Linha extras */
+  .linha-extras {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .linha-extras img.imagens-extras {
+    flex: 1 1 80%;
+    max-width: 80%;
+    margin-bottom: 1em;
+  }
+
+  .imagem-central img {
+    max-width: 90%;
+  }
+
+  /* Colunas de conteúdo */
+  .articles {
+    flex-direction: column;
+  }
+
+  .article {
+    width: 100%;
+  }
+
+  /* --- Regras de responsividade das tabelas e forms --- */
+  .article.column1 table,
+  .article.column3 table,
+  .article.column1 thead,
+  .article.column3 thead,
+  .article.column1 tbody,
+  .article.column3 tbody,
+  .article.column1 th,
+  .article.column3 th,
+  .article.column1 td,
+  .article.column3 td,
+  .article.column1 tr,
+  .article.column3 tr {
+    display: block;
+  }
+
+  .article.column1 tr,
+  .article.column3 tr {
+    margin-bottom: 1em;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .article.column1 th,
+  .article.column3 th {
+    background: none;
+    color: #e50914;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .article.column1 td,
+  .article.column3 td {
+    text-align: left;
+    padding-left: 1em;
+    color: #fff; /* Garante que o texto da tabela 3 fique branco */
+    border: none;
+  }
+
+  .article.column2 .campo {
+    width: 100%;
+  }
+
+  .article.column2 input,
+  .article.column2 select {
+    font-size: 1em;
+  }
+
+  .article.column4 {
+    padding: 15px;
+  }
+
+  .article.column4 fieldset.rec_inf {
+    padding: 15px;
+  }
+
+  .article.column4 input[type="submit"],
+  .article.column4 input[type="reset"] {
+    width: 48%;
+    font-size: 0.85em;
+  }
+}
+
+/* -------------------- RESPONSIVIDADE (CELULAR) -------------------- */
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    padding: 0 2%;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  #nav ul {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+
+  p.sinopse {
+    font-size: 14px;
+    text-align: justify;
+  }
+
+  .linha-extras img.imagens-extras {
+    max-width: 90%;
+  }
+
+  .article {
+    padding: 1.2em;
+  }
+
+  /* Botões de form (coluna 2 e 4) */
+  .article.column2 #submit,
+  .article.column4 #submit,
+  .article.column4 #reset {
+    width: 100%;
+    margin-bottom: 0.6em;
+  }
+
+  /* Esconde cabeçalhos das tabelas */
+  .article.column1 table thead,
+  .article.column3 table thead {
+    display: none;
+  }
+
+  /* Adiciona "data-label" para simular cabeçalhos */
+  .article.column1 td::before,
+  .article.column3 td::before {
+    content: attr(data-label); /* Isso requer que você adicione 'data-label' no HTML */
+    font-weight: bold;
+    color: #e50914;
+    display: block;
+    margin-bottom: 0.3em;
+  }
+}
+
+/* -------------------- BOTÃO VOLTAR AO TOPO -------------------- */
+html {
+  scroll-behavior: smooth; /* Isso faz a rolagem ser suave! */
+}
+
+#btn-topo {
+  position: fixed; /* Fica fixo na tela */
+  bottom: 20px; /* 20px de distância do rodapé */
+  right: 20px; /* 20px de distância da direita */
+  z-index: 1000; /* Garante que fique por cima de tudo */
+  background-color: #e50914; /* Cor vermelha do site */
+  color: #fff; /* Cor do texto (seta) */
+  border: none;
+  border-radius: 50%; /* Deixa o botão redondo */
+  width: 50px; /* Largura */
+  height: 50px; /* Altura */
+  font-size: 1.5em; /* Tamanho da seta */
+  font-weight: bold;
+  line-height: 50px; /* Centraliza a seta verticalmente */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#btn-topo:hover {
+  background-color: #b0060f; /* Vermelho mais escuro no hover */
+  transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* -------------------------------------------------- */
+/* CARROSSEL HORIZONTAL (PÁGINA DE CARTAZ)       */
+/* -------------------------------------------------- */
+.scroller-filmes {
+  display: flex; /* Coloca os itens lado a lado */
+  overflow-x: auto; /* ADICIONA O SCROLL HORIZONTAL (A MÁGICA) */
+  overflow-y: hidden; /* Esconde o scroll vertical */
+  padding-bottom: 20px; /* Deixa espaço para a barra de scroll */
+  border-top: 1px solid #333; /* Linha de separação */
+  border-bottom: 1px solid #333; /* Linha de separação */
+  padding-top: 20px;
+}
+
+/* Para customizar a barra de scroll (opcional, mas bonito) */
+.scroller-filmes::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroller-filmes::-webkit-scrollbar-thumb {
+  background: #e50914; /* Cor vermelha do site */
+  border-radius: 4px;
+}
+
+.scroller-filmes::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+/* Cada filme individual dentro do carrossel */
+.filme-item {
+  flex: 0 0 auto; /* Impede que os itens encolham */
+  width: 220px; /* Largura fixa para cada pôster */
+  margin-right: 1.5em; /* Espaço entre os filmes */
+}
+
+/* A imagem do pôster */
+.filme-item img {
+  width: 100%; /* Faz a imagem ocupar 100% dos 220px */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* O título do filme */
+.filme-item p {
+  color: #f5f5f5;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-top: 0.75em;
+  text-align: center;
+}
+
+/* Efeito de hover */
+.filme-item:hover img {
+  transform: scale(1.05); /* Aumenta o pôster */
+  box-shadow: 0 6px 15px rgba(229, 9, 20, 0.4); /* Brilho vermelho */
+}
+
+/* -------------------------------------------------- */
+/* FORMULÁRIO DE CONTATO (PÁGINA DE CONTATO)       */
+/* -------------------------------------------------- */
+.form-contato {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid #333; /* Linha de separação */
+}
+
+/* Rótulos (Labels) */
+.form-contato label {
+  display: block; /* Faz cada label ocupar uma linha */
+  text-align: left;
+  font-weight: bold;
+  color: #e50914; /* Vermelho do site */
+  margin-bottom: 0.5em;
+  margin-top: 1em; /* Espaço acima de cada label */
+}
+
+/* Campos de texto e email */
+.form-contato input[type="text"],
+.form-contato input[type="email"],
+.form-contato textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background-color: #222; /* Fundo escuro */
+  color: #f5f5f5; /* Texto claro */
+  outline: none;
+  font-size: 1em;
+  font-family: 'Poppins', Arial, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Campo de Mensagem */
+.form-contato textarea {
+  resize: vertical; /* Permite que o usuário aumente a altura */
+  min-height: 150px;
+}
+
+/* Efeito de foco (quando clica no campo) */
+.form-contato input[type="text"]:focus,
+.form-contato input[type="email"]:focus,
+.form-contato textarea:focus {
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.7); /* Brilho vermelho */
+}
+
+/* Botão Enviar */
+.form-contato .btn-enviar {
+  background-color: #e50914;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5em;
+  width: 100%; /* Faz o botão ter largura total */
+  font-size: 1em;
+}
+
+.form-contato .btn-enviar:hover {
+  background-color: #b0060f;
+  transform: scale(1.02);
+}
+
+/* -------------------------------------------------- */
+/* CONTEÚDO PÁGINAS INTERNAS (Sobre, Contato, etc.)   */
+/* -------------------------------------------------- */
+
+/* --- BLOCO DUPLICADO REMOVIDO DAQUI --- */
+
+/* Estilo para o Título Principal (<h1>Sobre o LaraFlix</h1>) */
+.conteudo-pagina h1 {
+  color: #e50914; /* Vermelho do site */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+/* Estilo para os parágrafos (<p>...) */
+.conteudo-pagina p {
+  text-align: justify; /* Justifica o texto */
+  margin-bottom: 1em;
+  color: #ccc; /* Um pouco mais claro que o padrão */
+}
+
+/* Estilo para a lista (<ul>...</ul>) */
+.conteudo-pagina ul {
+  list-style-type: none; /* Remove os pontinhos padrão */
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+/* Estilo para os itens da lista (<li>...) */
+.conteudo-pagina li {
+  color: #ccc;
+  padding-left: 1.5em; /* Espaço para o ícone */
+  text-align: left;
+  margin-bottom: 0.5em;
+  position: relative; /* Necessário para o ícone personalizado */
+}
+
+/* Ícone personalizado (vermelho) para a lista */
+.conteudo-pagina li::before {
+  content: '►'; /* Você pode trocar por '•', '✓' ou outro símbolo */
+  position: absolute;
+  left: 0;
+  color: #e50914; /* Cor vermelha do ícone */
+  font-size: 0.8em;
+  line-height: 1.6;
+}
+
+/* Estilo para o texto em negrito (<strong>...</strong>) */
+.conteudo-pagina strong {
+  color: #fff; /* Deixa o texto em negrito mais destacado */
+  font-weight: bold;
+}
